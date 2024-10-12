@@ -4,6 +4,6 @@ terraform {
     encrypt        = true
     key            = "terraform.tfstate"
     region         = "us-east-1"
-    dynamodb_table = "aia-3-tier-app-DBtable"
+    dynamodb_table = "aias-dynamodb-3tier-app"
   }
 }
