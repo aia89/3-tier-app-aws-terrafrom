@@ -24,7 +24,7 @@ To realize this project, we are going to create in aws, resources, to contain th
 ![](./media/bucket1.PNG) 
 ![](./media/bucket2.PNG)
 
-__Note :__ In my case, I used __utrains-bucket-backend-three-tier-app__ as my Bucket name. This will be used in our terraform code to configure the backend.
+__Note :__ In my case, I used __bucket-for-3-tier-app__ as my Bucket name. This will be used in our terraform code to configure the backend.
 
 ### 2.2- Creat table in DynamoDB
 1. In the search bar of the aws console, type DynamoDB, then click on DynamoDb to select
@@ -32,7 +32,7 @@ __Note :__ In my case, I used __utrains-bucket-backend-three-tier-app__ as my Bu
 
 ![](./media/dynamoDB.PNG)
 
-3. Fill the form by putting the name of the table (__utrains-dynamodb-backend-three-tier-app__) in my case, the partition key (__utrainsKey__). to finish, scroll down and click on create table. This no and this key will allow us to configure our backend in the Terraform code.
+3. Fill the form by putting the name of the table (__mydynamotable-3tier__) in my case, the partition key (__aiasKey__). to finish, scroll down and click on create table. This no and this key will allow us to configure our backend in the Terraform code.
 
 ![](./media/dynamoDB_form.PNG)
 
@@ -48,11 +48,11 @@ for my case, I will have the following content:
 ```sh
 terraform {
   backend "s3" {
-    bucket         = "utrains-bucket-backend-three-tier-app"
+    bucket         = "bucket-for-3-tier-app"
     encrypt        = true
     key            = "terraform.tfstate"
-    region         = "us-west-2"
-    dynamodb_table = "utrains-dynamodb-backend-three-tier-app"
+    region         = "us-east-1"
+    dynamodb_table = "mydynamotable-3tier"
   }
 }
 ```
